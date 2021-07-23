@@ -1,13 +1,6 @@
 import { getEmployees, getOrders } from "./database.js";
 const employees = getEmployees();
 const orders = getOrders();
-let employeeSalesCounter = 0;
-
-for (const order of orders) {
-  if (order.employeeId === parseInt(employeeId)) {
-    employeeSalesCounter++;
-  }
-}
 
 document.addEventListener("click", (clickEvent) => {
   let employeeSalesCounter = 0;
@@ -15,6 +8,11 @@ document.addEventListener("click", (clickEvent) => {
   if (itemClicked.id.startsWith("employee")) {
     const [, employeeId] = itemClicked.id.split("--");
 
+    for (const order of orders) {
+      if (order.employeeId === parseInt(employeeId)) {
+        employeeSalesCounter++;
+      }
+    }
     for (const employee of employees) {
       if (employee.id === parseInt(employeeId)) {
         window.alert(
