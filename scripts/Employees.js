@@ -3,6 +3,12 @@ const employees = getEmployees();
 const orders = getOrders();
 let employeeSalesCounter = 0;
 
+for (const order of orders) {
+  if (order.employeeId === parseInt(employeeId)) {
+    employeeSalesCounter++;
+  }
+}
+
 document.addEventListener("click", (clickEvent) => {
   let employeeSalesCounter = 0;
   const itemClicked = clickEvent.target;
